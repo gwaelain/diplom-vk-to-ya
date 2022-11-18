@@ -1,0 +1,8 @@
+certifi==2022.5.18.1
+charset-normalizer==2.0.12
+colorama==0.4.4
+idna==3.3
+progress==1.6
+requests==2.27.1
+tqdm==4.64.0
+urllib3==1.26.9
