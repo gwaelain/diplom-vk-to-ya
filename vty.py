@@ -19,8 +19,8 @@ class VkUser:
     URL = 'https://api.vk.com/method/'
     def __init__(self, tokenVK, version='5.131'):
         self.params = {
-            'access_token': tokenVK,
-            'v': version
+                        'access_token': tokenVK,
+                        'v': version
                       }
         self.id = input('Введите id пользователя vk: ')
         self.json, self.export_dict = self.sort_info()
@@ -28,7 +28,7 @@ class VkUser:
     def get_id_by_name (self):
         get_id_URL = self.URL + 'utils.resolveScreenName'
         get_id_params = {
-            'screen_name': 'begemot_korovin'
+                        'screen_name': 'ivanov_ivan'
                          }
         user_id = requests.get(get_id_URL, params={**self.params, **get_id_params}).json()['response']['object_id']
         pprint(user_id)
@@ -55,10 +55,10 @@ class VkUser:
             time_warp = datetime.utcfromtimestamp(int(photo_items[i]['date'])).strftime('%Y-%m-%d')
             new_value = result.get(likes_count, [])
             new_value.append({
-                'likes_count': likes_count,
-                              'add_name': time_warp,
-                              'url_picture': url_download,
-                              'size': picture_size
+                            'likes_count': likes_count,
+                            'add_name': time_warp,
+                            'url_picture': url_download,
+                            'size': picture_size
                              })
             result[likes_count] = new_value
         return result
@@ -117,7 +117,7 @@ class YandexDisk:
             if copy_counter < self.added_pics_num:
                 if key not in files_in_folder:
                     params = {
-                        'path': f'{self.folder}/{key}',
+                              'path': f'{self.folder}/{key}',
                               'url': dict_files[key],
                               'overwrite': 'false'
                               }
@@ -132,7 +132,7 @@ class YandexDisk:
 
 
 if __name__ == '__main__':
-    tokenVK = ''
+    tokenVK = 'vk1.a.kHgfczhgq-p3s0-cO8SjzfVcwLMdTaZWlEJUTsFFqU_qgLEyD2dct-1d_sV1E57sy02e-B-gNU26nwiy7pMXk70-_PXn0wALGPLPw9DMDafQBIOXw74scasypfx4auNaKcabxeUz-YKHXs1F8XOhK2Q1lWt68Bu8O5RRgq7_JJexV21xbXAzEGLk0VOd7GwH'
     vk_client = VkUser(tokenVK, '5.131')
 
     with open('vk_client.json', 'w') as outfile:
